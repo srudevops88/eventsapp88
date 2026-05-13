@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: events-website
+  labels:
+    app: events-website
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: events-website
+      ver: v1.0
+
+  template:
+    metadata:
+      labels:
+        app: events-website
+        ver: v1.0
+
+    spec:
+      containers:
+      - name: events-website
+        image: srudevops88/events-website:v3.0
+        ports:
+        - containerPort: 8082
