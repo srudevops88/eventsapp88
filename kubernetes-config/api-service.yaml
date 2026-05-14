@@ -6,9 +6,9 @@ metadata:
  name: events-api-svc
 spec:
  ports:
- - port: 8080
+ - port: 8082
    protocol: TCP
-   targetPort: 8080
+   targetPort: 8082
  selector:
    app: events-api
    ver: v1.0

@@ -20,4 +20,16 @@ spec:
      - image: srudevops88/events-api:v1.0
        name: events-api
        ports:
-       - containerPort: 8080
+       - containerPort: 8082
+       env:
+       - name: DBHOST
+         value: "database-server-mariadb.default"
+       - name: DBUSER
+         value: "root"
+       - name: DBPASSWORD
+         valueFrom:
+           secretKeyRef:
+             name: database-server-mariadb
+             key: mariadb-root-password
+       - name: DBDATABASE
+         value: "events_db" 
